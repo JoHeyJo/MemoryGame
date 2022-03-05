@@ -1,0 +1,33 @@
+/* you can add to or change this. */
+
+body {
+  background-color: #2c8257;
+}
+
+#game div {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  width: 200px;
+  height: 300px;
+  margin: 20px;
+  display: inline-block;
+  /* background-image: url("file:///Users/jf/Desktop/memory-game/demo/Screen%20Shot%202022-03-04%20at%202.29.07%20PM.png"); */
+  background-color: #cf5555;
+  border-radius: 2%;
+}
+
+.disable-pointer {
+  pointer-events: none;
+}
+
+.img-size {
+  height: 100px;
+  width: inherit;
+}
+
+
+img {
+  height: inherit;
+  width: 100%;
+}
