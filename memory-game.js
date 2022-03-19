@@ -1,5 +1,5 @@
 "use strict";
-window.stop();
+// window.stop();
 /** Memory game: find matching pairs of cards and flip both of them. */
 
 const FOUND_MATCH_WAIT_MSECS = 1000;
@@ -38,23 +38,51 @@ function shuffle(items) {
  * - an click listener for each card to handleCardClick
  */
 
-function createCards(colors) {
-  const gameBoard = document.getElementById("game");
 
-  for (let color of colors) {
+// let gameBoard;
+/** creates two divs, one represents the top of the card the other the bottom */
+function createCards(colors) {
+  let gameBoard = document.getElementById("game");
+
+  
+  for(let i = 0; i < colors.length; i++){
     let card = document.createElement("div")
-    // let imageDivs = gameBoard.childNodes;
-    // imageDivs.classList.add('img-size');
-    // let img = document.createElement('img')
-    // img.src = "file:///Users/jf/Desktop/memory-game/demo/Screen%20Shot%202022-03-04%20at%202.29.07%20PM.png";
-    // img.id = "select-image";
-    gameBoard.appendChild(card).classList.add(color);
-    // for(let image of imageDivs){
-    //   image.appendChild(img)
-    // }
+    card.classList.add('memoryCardDiv');
+    let cardDiv = gameBoard.appendChild(card);
     
+    
+    //create bottom of card
+    
+    let cardFront = document.createElement('div')
+    cardDiv.appendChild(cardFront);
+    cardFront.classList.add(colors[i]);
+    
+//     // create top of card
+
+    let img = document.createElement('img')
+    img.src = "file:///Users/jf/Desktop/RithmProjects/memory-game/Screen%20Shot%202022-03-04%20at%202.29.07%20PM.png";
+    cardDiv.appendChild(img)
+    img.classList.add("back-card");
   }
 }
+
+  // for (let color of colors) {
+    
+    
+    
+  // }
+
+// let cardDivs = document.getElementById("game").childNodes;    
+// for(let card of cardDivs){
+  
+ 
+  
+  
+  
+  // imageDivs.classList.add('img-size'); 
+  // img.class = "back-card";
+
+    
 
 let cards = document.getElementById("game").childNodes;
 
@@ -69,7 +97,7 @@ let eventFlag;
 for(let card of cards){
   card.addEventListener('click', function(evt){
     handleCardClick(card)
-    console.log(evt.target);
+    // console.log(evt.target);
   });
 }
 
@@ -77,13 +105,16 @@ for(let card of cards){
 
 function flipCard(card) {
   
-  card.style.backgroundColor = card.classList;
+  // card.style.backgroundColor = card.classList;
   
   flippedCards++;
   flippedCards < 2 ? card1 = card.classList.value :card2 = card.classList.value;
   card.classList.add('disable-pointer');
+  // console.log(this);
   console.log(card1 + card2 )
 }
+
+
 
 /** Flip a card face-down. */
 
